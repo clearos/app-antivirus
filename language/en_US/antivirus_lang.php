@@ -1,6 +1,6 @@
 <?php
 
-$lang['antivirus_app_description'] = 'Gateway Antivirus uses a central antivirus engine to scan web and FTP traffic.  It protects devices connected to your network by stopping malware at the gateway if a positive match is made against a database of known virus signatures.';
+$lang['antivirus_app_description'] = 'Gateway Antivirus uses a central antivirus engine to scan web, FTP, mail and more.  It protects devices connected to your network by stopping malware before it has a chance to reach your users.';
 $lang['antivirus_app_name'] = 'Gateway Antivirus';
 $lang['antivirus_app_tooltip'] = 'Encrypted files are often used to deliver malware, so please be careful about allowing these types of files through the antivirus engine';
 $lang['antivirus_block_encrypted_archive_flag_invalid'] = 'Block encrypted archive value is invalid.';
