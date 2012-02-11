@@ -544,7 +544,7 @@ class ClamAV extends Daemon
         $flag = (bool)$flag;
 
         if (! is_bool($flag))
-            return lang('antivirus_phishing_scan_urls_state');
+            return lang('antivirus_phishing_scan_urls_state_invalid');
     }
 
     /**
@@ -562,7 +562,7 @@ class ClamAV extends Daemon
         $flag = (bool)$flag;
 
         if (! is_bool($flag))
-            return lang('antivirus_phishing_always_block_ssl_mismatch');
+            return lang('antivirus_phishing_always_block_ssl_mismatch_invalid');
     }
 
     /**
@@ -580,7 +580,7 @@ class ClamAV extends Daemon
         $flag = (bool)$flag;
 
         if (! is_bool($flag))
-            return lang('antivirus_phishing_always_block_cloak');
+            return lang('antivirus_phishing_always_block_cloak_invalid');
     }
 
     ///////////////////////////////////////////////////////////////////////////////
