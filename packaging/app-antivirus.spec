@@ -1,7 +1,7 @@
 
 Name: app-antivirus
 Epoch: 1
-Version: 1.0.10
+Version: 1.1.0
 Release: 1%{dist}
 Summary: Gateway Antivirus
 License: GPLv3
@@ -16,7 +16,7 @@ Requires: app-network
 Gateway Antivirus uses a central antivirus engine to scan web, FTP, mail and more.  It protects devices connected to your network by stopping malware before it has a chance to reach your users.
 
 %package core
-Summary: Gateway Antivirus - APIs and install
+Summary: Gateway Antivirus - Core
 License: LGPLv3
 Group: ClearOS/Libraries
 Requires: app-base-core
