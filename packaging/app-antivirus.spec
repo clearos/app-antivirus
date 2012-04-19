@@ -13,7 +13,7 @@ Requires: app-base
 Requires: app-network
 
 %description
-Gateway Antivirus uses a central antivirus engine to scan web, FTP, mail and more.  It protects devices connected to your network by stopping malware before it has a chance to reach your users.
+The Gateway Antivirus app uses a central antivirus engine to scan web, FTP, mail and more.  It protects devices connected to your network by stopping malware before it has a chance to reach your users.
 
 %package core
 Summary: Gateway Antivirus - Core
@@ -24,7 +24,7 @@ Requires: app-network-core
 Requires: clamd
 
 %description core
-Gateway Antivirus uses a central antivirus engine to scan web, FTP, mail and more.  It protects devices connected to your network by stopping malware before it has a chance to reach your users.
+The Gateway Antivirus app uses a central antivirus engine to scan web, FTP, mail and more.  It protects devices connected to your network by stopping malware before it has a chance to reach your users.
 
 This package provides the core API and libraries.
 
