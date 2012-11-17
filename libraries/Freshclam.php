@@ -252,6 +252,49 @@ class Freshclam extends Engine
         $this->_set_parameter('Checks', $count);
     }
 
+    /**
+     * Updates proxy server settings.
+     *
+     * The settings are taken from the upstream-proxy app.
+     *
+     * @return void
+     * @throws Engine_Exception, Validation_Exception
+     */
+
+    public function update_proxy_settings()
+    {
+        clearos_profile(__METHOD__, __LINE__);
+
+        if (clearos_app_installed('upstream_proxy')) {
+            clearos_load_library('upstream_proxy/Proxy');
+
+            $proxy = new \clearos\apps\upstream_proxy\Proxy();
+
+            $server = $proxy->get_server();
+            $port = $proxy->get_port();
+            $username = $proxy->get_username();
+            $password = $proxy->get_password();
+
+            if (empty($server)) {
+                $this->_set_parameter('HTTPProxyServer', NULL);
+                $this->_set_parameter('HTTPProxyPort', NULL);
+            } else {
+                $this->_set_parameter('HTTPProxyServer', $server);
+                $this->_set_parameter('HTTPProxyPort', $port);
+            }
+
+            if (empty($username))
+                $this->_set_parameter('HTTPProxyUsername', NULL);
+            else
+                $this->_set_parameter('HTTPProxyUsername', $username);
+
+            if (empty($password))
+                $this->_set_parameter('HTTPProxyPassword', NULL);
+            else
+                $this->_set_parameter('HTTPProxyPassword', $password);
+        }
+    }
+
     ///////////////////////////////////////////////////////////////////////////////
     // V A L I D A T I O N
     ///////////////////////////////////////////////////////////////////////////////
@@ -294,12 +337,17 @@ class Freshclam extends Engine
         clearos_profile(__METHOD__, __LINE__);
 
         $file = new File(self::FILE_CONFIG);
-        $match = $file->replace_lines("/^$key\s+/", "$key $value\n");
 
-        if ($match === 0)
-            $file->add_lines("$key $value\n");
+        if (is_null($value)) {
+            $file->delete_lines("/^$key\s+/");
+        } else {
+            $match = $file->replace_lines("/^$key\s+/", "$key $value\n");
 
-        $this->is_loaded = FALSE;
+            if ($match === 0)
+                $file->add_lines("$key $value\n");
+
+            $this->is_loaded = FALSE;
+        }
     }
 
     /**

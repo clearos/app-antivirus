@@ -1,0 +1,38 @@
+#!/usr/clearos/sandbox/usr/bin/php
+<?php
+
+/**
+ * Freshclam configuration update triggered by an upstream proxy event.
+ *
+ * @category   Apps
+ * @package    Antivirus
+ * @subpackage Scripts
+ * @author     ClearCenter <developer@clearcenter.com>
+ * @copyright  2012 ClearCenter
+ * @license    http://www.clearcenter.com/app_license ClearCenter license
+ * @link       http://www.clearcenter.com/support/documentation/clearos/antivirus/
+ */
+
+///////////////////////////////////////////////////////////////////////////////
+// B O O T S T R A P
+///////////////////////////////////////////////////////////////////////////////
+
+$bootstrap = getenv('CLEAROS_BOOTSTRAP') ? getenv('CLEAROS_BOOTSTRAP') : '/usr/clearos/framework/shared';
+require_once $bootstrap . '/bootstrap.php';
+
+///////////////////////////////////////////////////////////////////////////////
+// D E P E N D E N C I E S
+///////////////////////////////////////////////////////////////////////////////
+
+use \clearos\apps\antivirus\Freshclam as Freshclam;
+
+clearos_load_library('antivirus/Freshclam');
+
+///////////////////////////////////////////////////////////////////////////////
+// M A I N
+///////////////////////////////////////////////////////////////////////////////
+
+$freshclam = new Freshclam();
+$freshclam->update_proxy_settings();
+
+// vim: syntax=php ts=4

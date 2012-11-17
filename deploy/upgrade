@@ -20,3 +20,8 @@ if ( [ ! -z $INIT ] && [ -x /etc/rc.d/init.d/clamd ] ); then
     chkconfig clamd on
     service clamd start >/dev/null 2>&1
 fi
+
+# Trigger check for upstream proxy configuration
+#-----------------------------------------------
+
+/var/clearos/events/upstream_proxy/antivirus

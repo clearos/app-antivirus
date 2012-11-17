@@ -1,7 +1,7 @@
 
 Name: app-antivirus
 Epoch: 1
-Version: 1.1.0
+Version: 1.4.0
 Release: 1%{dist}
 Summary: Gateway Antivirus
 License: GPLv3
@@ -36,6 +36,7 @@ This package provides the core API and libraries.
 mkdir -p -m 755 %{buildroot}/usr/clearos/apps/antivirus
 cp -r * %{buildroot}/usr/clearos/apps/antivirus/
 
+install -D -m 0755 packaging/antivirus %{buildroot}/var/clearos/events/upstream_proxy/antivirus
 install -D -m 0644 packaging/clamd.php %{buildroot}/var/clearos/base/daemon/clamd.php
 
 %post
@@ -79,4 +80,5 @@ exit 0
 /usr/clearos/apps/antivirus/deploy
 /usr/clearos/apps/antivirus/language
 /usr/clearos/apps/antivirus/libraries
+/var/clearos/events/upstream_proxy/antivirus
 /var/clearos/base/daemon/clamd.php

@@ -5,7 +5,7 @@
 /////////////////////////////////////////////////////////////////////////////
 
 $app['basename'] = 'antivirus';
-$app['version'] = '1.1.0';
+$app['version'] = '1.4.0';
 $app['release'] = '1';
 $app['vendor'] = 'ClearFoundation';
 $app['packager'] = 'ClearFoundation';
@@ -42,4 +42,8 @@ $app['core_requires'] = array(
 
 $app['core_file_manifest'] = array(
     'clamd.php'=> array('target' => '/var/clearos/base/daemon/clamd.php'),
+    'antivirus'=> array(
+        'target' => '/var/clearos/events/upstream_proxy/antivirus',
+        'mode' => '0755',
+    ),
 );
