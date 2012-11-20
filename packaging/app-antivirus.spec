@@ -1,7 +1,7 @@
 
 Name: app-antivirus
 Epoch: 1
-Version: 1.4.0
+Version: 1.4.4
 Release: 1%{dist}
 Summary: Gateway Antivirus
 License: GPLv3
