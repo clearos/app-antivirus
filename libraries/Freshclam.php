@@ -3,9 +3,9 @@
 /**
  * Freshclam class.
  *
- * @category   Apps
- * @package    Antivirus
- * @subpackage Libraries
+ * @category   apps
+ * @package    antivirus
+ * @subpackage libraries
  * @author     ClearFoundation <developer@clearfoundation.com>
  * @copyright  2007-2011 ClearFoundation
  * @license    http://www.gnu.org/copyleft/lgpl.html GNU Lesser General Public License version 3 or later
@@ -79,9 +79,9 @@ clearos_load_library('base/Validation_Exception');
 /**
  * Freshclam class.
  *
- * @category   Apps
- * @package    Antivirus
- * @subpackage Libraries
+ * @category   apps
+ * @package    antivirus
+ * @subpackage libraries
  * @author     ClearFoundation <developer@clearfoundation.com>
  * @copyright  2007-2011 ClearFoundation
  * @license    http://www.gnu.org/copyleft/lgpl.html GNU Lesser General Public License version 3 or later

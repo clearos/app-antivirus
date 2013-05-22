@@ -4,9 +4,9 @@
 /**
  * Freshclam configuration update triggered by an upstream proxy event.
  *
- * @category   Apps
- * @package    Antivirus
- * @subpackage Scripts
+ * @category   apps
+ * @package    antivirus
+ * @subpackage scripts
  * @author     ClearCenter <developer@clearcenter.com>
  * @copyright  2012 ClearCenter
  * @license    http://www.clearcenter.com/app_license ClearCenter license
