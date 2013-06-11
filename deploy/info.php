@@ -5,7 +5,7 @@
 /////////////////////////////////////////////////////////////////////////////
 
 $app['basename'] = 'antivirus';
-$app['version'] = '1.4.14';
+$app['version'] = '1.4.35';
 $app['release'] = '1';
 $app['vendor'] = 'ClearFoundation';
 $app['packager'] = 'ClearFoundation';
@@ -37,7 +37,7 @@ $app['requires'] = array(
 
 $app['core_requires'] = array(
     'app-network-core',
-    'clamd',
+    'clamd >= 0.97.8-2',
 );
 
 $app['core_file_manifest'] = array(
@@ -46,7 +46,12 @@ $app['core_file_manifest'] = array(
         'target' => '/var/clearos/events/upstream_proxy/antivirus',
         'mode' => '0755',
     ),
+    'clamav-check.sh'=> array(
+        'target' => '/usr/sbin/clamav-check.sh',
+        'mode' => '0755',
+    ),
 );
+
 $app['delete_dependency'] = array(
     'app-antimalware-updates',
     'app-antimalware-updates-core',
