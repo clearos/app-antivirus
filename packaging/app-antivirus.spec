@@ -1,7 +1,7 @@
 
 Name: app-antivirus
 Epoch: 1
-Version: 1.4.35
+Version: 1.5.20
 Release: 1%{dist}
 Summary: Gateway Antivirus
 License: GPLv3
@@ -21,7 +21,7 @@ License: LGPLv3
 Group: ClearOS/Libraries
 Requires: app-base-core
 Requires: app-network-core
-Requires: clamd >= 0.97.8-2
+Requires: clamd >= 0.98
 
 %description core
 The Gateway Antivirus app uses a central antivirus engine to scan web, FTP, mail and more.  It protects devices connected to your network by stopping malware before it has a chance to reach your users.
@@ -76,7 +76,6 @@ exit 0
 %files core
 %defattr(-,root,root)
 %exclude /usr/clearos/apps/antivirus/packaging
-%exclude /usr/clearos/apps/antivirus/tests
 %dir /usr/clearos/apps/antivirus
 /usr/clearos/apps/antivirus/deploy
 /usr/clearos/apps/antivirus/language
