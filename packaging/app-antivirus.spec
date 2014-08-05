@@ -1,7 +1,7 @@
 
 Name: app-antivirus
 Epoch: 1
-Version: 1.6.0
+Version: 1.6.5
 Release: 1%{dist}
 Summary: Gateway Antivirus
 License: GPLv3
@@ -21,7 +21,9 @@ License: LGPLv3
 Group: ClearOS/Libraries
 Requires: app-base-core
 Requires: app-network-core
-Requires: clamd >= 0.98
+Requires: clamav >= 0.98
+Requires: /usr/bin/freshclam
+Requires: /usr/sbin/clamd
 
 %description core
 The Gateway Antivirus app uses a central antivirus engine to scan web, FTP, mail and more.  It protects devices connected to your network by stopping malware before it has a chance to reach your users.
