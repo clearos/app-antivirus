@@ -39,7 +39,8 @@ $app['core_requires'] = array(
     'app-network-core',
     'clamav >= 0.98',
     '/usr/bin/freshclam',
-    '/usr/sbin/clamd'
+    '/usr/sbin/clamd',
+    '/usr/bin/clamscan'
 );
 
 $app['core_file_manifest'] = array(

@@ -24,6 +24,7 @@ Requires: app-network-core
 Requires: clamav >= 0.98
 Requires: /usr/bin/freshclam
 Requires: /usr/sbin/clamd
+Requires: /usr/bin/clamscan
 
 %description core
 The Gateway Antivirus app uses a central antivirus engine to scan web, FTP, mail and more.  It protects devices connected to your network by stopping malware before it has a chance to reach your users.
