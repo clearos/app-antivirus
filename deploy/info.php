@@ -5,7 +5,7 @@
 /////////////////////////////////////////////////////////////////////////////
 
 $app['basename'] = 'antivirus';
-$app['version'] = '2.0.18';
+$app['version'] = '2.0.21';
 $app['release'] = '1';
 $app['vendor'] = 'ClearFoundation';
 $app['packager'] = 'ClearFoundation';
@@ -56,6 +56,12 @@ $app['core_file_manifest'] = array(
 );
 
 $app['delete_dependency'] = array(
+    'app-antivirus-core',
     'app-antimalware-updates',
     'app-antimalware-updates-core',
+    'app-antiphishing',
+    'app-antiphishing-core',
+    'app-content-filter',
+    'app-content-filter-core',
+    'clamav'
 );
