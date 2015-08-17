@@ -5,7 +5,7 @@
 /////////////////////////////////////////////////////////////////////////////
 
 $app['basename'] = 'antivirus';
-$app['version'] = '2.1.14';
+$app['version'] = '2.1.15';
 $app['release'] = '1';
 $app['vendor'] = 'ClearFoundation';
 $app['packager'] = 'ClearFoundation';
@@ -23,11 +23,6 @@ $app['category'] = lang('base_category_gateway');
 $app['subcategory'] = lang('base_subcategory_antimalware');
 
 /////////////////////////////////////////////////////////////////////////////
-// Controllers
-/////////////////////////////////////////////////////////////////////////////
-
-
-/////////////////////////////////////////////////////////////////////////////
 // Packaging
 /////////////////////////////////////////////////////////////////////////////
 
@@ -36,6 +31,7 @@ $app['requires'] = array(
 );
 
 $app['core_requires'] = array(
+    'app-events-core',
     'app-network-core',
     'app-tasks-core',
     'clamav >= 0.98',
@@ -58,6 +54,10 @@ $app['core_file_manifest'] = array(
     'freshclam-update'=> array(
         'target' => '/usr/sbin/freshclam-update',
         'mode' => '0755',
+    ),
+    'network-connected-event'=> array(
+        'target' => '/var/clearos/events/network_connected/antivirus',
+        'mode' => '0755'
     ),
 );
 

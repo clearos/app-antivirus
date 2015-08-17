@@ -1,0 +1,8 @@
+#!/bin/sh
+
+OLD=`find /var/log/clamav -name freshclam.log -mmin +10`
+
+if [ -n "$OLD" ]; then
+    logger -p local6.notice -t events "antivirus - fetching latest signatures"
+    /usr/sbin/freshclam-update
+fi
