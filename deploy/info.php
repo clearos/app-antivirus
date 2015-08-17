@@ -5,7 +5,7 @@
 /////////////////////////////////////////////////////////////////////////////
 
 $app['basename'] = 'antivirus';
-$app['version'] = '2.1.6';
+$app['version'] = '2.1.14';
 $app['release'] = '1';
 $app['vendor'] = 'ClearFoundation';
 $app['packager'] = 'ClearFoundation';
@@ -37,6 +37,7 @@ $app['requires'] = array(
 
 $app['core_requires'] = array(
     'app-network-core',
+    'app-tasks-core',
     'clamav >= 0.98',
     '/usr/bin/freshclam',
     '/usr/sbin/clamd',
@@ -45,12 +46,17 @@ $app['core_requires'] = array(
 
 $app['core_file_manifest'] = array(
     'clamd.php'=> array('target' => '/var/clearos/base/daemon/clamd.php'),
+    'app-antivirus.cron' => array( 'target' => '/etc/cron.d/app-antivirus'),
     'antivirus'=> array(
         'target' => '/var/clearos/events/upstream_proxy/antivirus',
         'mode' => '0755',
     ),
     'clamav-check.sh'=> array(
         'target' => '/usr/sbin/clamav-check.sh',
+        'mode' => '0755',
+    ),
+    'freshclam-update'=> array(
+        'target' => '/usr/sbin/freshclam-update',
         'mode' => '0755',
     ),
 );

@@ -1,7 +1,7 @@
 
 Name: app-antivirus
 Epoch: 1
-Version: 2.1.6
+Version: 2.1.14
 Release: 1%{dist}
 Summary: Gateway Antivirus
 License: GPLv3
@@ -21,6 +21,7 @@ License: LGPLv3
 Group: ClearOS/Libraries
 Requires: app-base-core
 Requires: app-network-core
+Requires: app-tasks-core
 Requires: clamav >= 0.98
 Requires: /usr/bin/freshclam
 Requires: /usr/sbin/clamd
@@ -40,8 +41,10 @@ mkdir -p -m 755 %{buildroot}/usr/clearos/apps/antivirus
 cp -r * %{buildroot}/usr/clearos/apps/antivirus/
 
 install -D -m 0755 packaging/antivirus %{buildroot}/var/clearos/events/upstream_proxy/antivirus
+install -D -m 0644 packaging/app-antivirus.cron %{buildroot}/etc/cron.d/app-antivirus
 install -D -m 0755 packaging/clamav-check.sh %{buildroot}/usr/sbin/clamav-check.sh
 install -D -m 0644 packaging/clamd.php %{buildroot}/var/clearos/base/daemon/clamd.php
+install -D -m 0755 packaging/freshclam-update %{buildroot}/usr/sbin/freshclam-update
 
 %post
 logger -p local6.notice -t installer 'app-antivirus - installing'
@@ -84,5 +87,7 @@ exit 0
 /usr/clearos/apps/antivirus/language
 /usr/clearos/apps/antivirus/libraries
 /var/clearos/events/upstream_proxy/antivirus
+/etc/cron.d/app-antivirus
 /usr/sbin/clamav-check.sh
 /var/clearos/base/daemon/clamd.php
+/usr/sbin/freshclam-update
