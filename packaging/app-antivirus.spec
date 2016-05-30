@@ -1,7 +1,7 @@
 
 Name: app-antivirus
 Epoch: 1
-Version: 1.6.7
+Version: 1.8.0
 Release: 1%{dist}
 Summary: Gateway Antivirus
 License: GPLv3
@@ -21,7 +21,7 @@ License: LGPLv3
 Group: ClearOS/Libraries
 Requires: app-base-core
 Requires: app-network-core
-Requires: clamav >= 0.98
+Requires: clamav >= 0.99.2
 Requires: /usr/bin/freshclam
 Requires: /usr/sbin/clamd
 Requires: /usr/bin/clamscan
