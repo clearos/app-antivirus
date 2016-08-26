@@ -5,7 +5,7 @@
 /////////////////////////////////////////////////////////////////////////////
 
 $app['basename'] = 'antivirus';
-$app['version'] = '2.1.15';
+$app['version'] = '2.2.0';
 $app['release'] = '1';
 $app['vendor'] = 'ClearFoundation';
 $app['packager'] = 'ClearFoundation';
@@ -34,7 +34,7 @@ $app['core_requires'] = array(
     'app-events-core',
     'app-network-core',
     'app-tasks-core',
-    'clamav >= 0.98',
+    'clamav >= 0.99.2',
     '/usr/bin/freshclam',
     '/usr/sbin/clamd',
     '/usr/bin/clamscan'
