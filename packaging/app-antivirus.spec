@@ -21,7 +21,7 @@ License: LGPLv3
 Group: ClearOS/Libraries
 Requires: app-base-core
 Requires: app-events-core
-Requires: app-network-core >= 1;2.3.28
+Requires: app-network-core >= 1:2.3.28
 Requires: app-tasks-core
 Requires: clamav >= 0.99.2
 Requires: /usr/bin/freshclam

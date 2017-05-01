@@ -32,7 +32,7 @@ $app['requires'] = array(
 
 $app['core_requires'] = array(
     'app-events-core',
-    'app-network-core >= 1;2.3.28',
+    'app-network-core >= 1:2.3.28',
     'app-tasks-core',
     'clamav >= 0.99.2',
     '/usr/bin/freshclam',
