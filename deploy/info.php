@@ -5,7 +5,7 @@
 /////////////////////////////////////////////////////////////////////////////
 
 $app['basename'] = 'antivirus';
-$app['version'] = '2.2.0';
+$app['version'] = '2.3.0';
 $app['release'] = '1';
 $app['vendor'] = 'ClearFoundation';
 $app['packager'] = 'ClearFoundation';
@@ -32,7 +32,7 @@ $app['requires'] = array(
 
 $app['core_requires'] = array(
     'app-events-core',
-    'app-network-core',
+    'app-network-core >= 1;2.3.28',
     'app-tasks-core',
     'clamav >= 0.99.2',
     '/usr/bin/freshclam',
@@ -40,11 +40,15 @@ $app['core_requires'] = array(
     '/usr/bin/clamscan'
 );
 
+// KLUDGE: we are using the network_configuration event for now since
+// upstream proxy settings are only configurable through editing a
+// WAN interface.
+
 $app['core_file_manifest'] = array(
     'clamd.php'=> array('target' => '/var/clearos/base/daemon/clamd.php'),
     'app-antivirus.cron' => array( 'target' => '/etc/cron.d/app-antivirus'),
     'antivirus'=> array(
-        'target' => '/var/clearos/events/upstream_proxy/antivirus',
+        'target' => '/var/clearos/events/network_configuration/antivirus',
         'mode' => '0755',
     ),
     'clamav-check.sh'=> array(

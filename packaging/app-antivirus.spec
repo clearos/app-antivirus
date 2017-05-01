@@ -1,7 +1,7 @@
 
 Name: app-antivirus
 Epoch: 1
-Version: 2.2.0
+Version: 2.3.0
 Release: 1%{dist}
 Summary: Gateway Antivirus
 License: GPLv3
@@ -21,7 +21,7 @@ License: LGPLv3
 Group: ClearOS/Libraries
 Requires: app-base-core
 Requires: app-events-core
-Requires: app-network-core
+Requires: app-network-core >= 1;2.3.28
 Requires: app-tasks-core
 Requires: clamav >= 0.99.2
 Requires: /usr/bin/freshclam
@@ -41,7 +41,7 @@ This package provides the core API and libraries.
 mkdir -p -m 755 %{buildroot}/usr/clearos/apps/antivirus
 cp -r * %{buildroot}/usr/clearos/apps/antivirus/
 
-install -D -m 0755 packaging/antivirus %{buildroot}/var/clearos/events/upstream_proxy/antivirus
+install -D -m 0755 packaging/antivirus %{buildroot}/var/clearos/events/network_configuration/antivirus
 install -D -m 0644 packaging/app-antivirus.cron %{buildroot}/etc/cron.d/app-antivirus
 install -D -m 0755 packaging/clamav-check.sh %{buildroot}/usr/sbin/clamav-check.sh
 install -D -m 0644 packaging/clamd.php %{buildroot}/var/clearos/base/daemon/clamd.php
@@ -84,11 +84,12 @@ exit 0
 %files core
 %defattr(-,root,root)
 %exclude /usr/clearos/apps/antivirus/packaging
+%exclude /usr/clearos/apps/antivirus/unify.json
 %dir /usr/clearos/apps/antivirus
 /usr/clearos/apps/antivirus/deploy
 /usr/clearos/apps/antivirus/language
 /usr/clearos/apps/antivirus/libraries
-/var/clearos/events/upstream_proxy/antivirus
+/var/clearos/events/network_configuration/antivirus
 /etc/cron.d/app-antivirus
 /usr/sbin/clamav-check.sh
 /var/clearos/base/daemon/clamd.php

@@ -265,23 +265,10 @@ class Freshclam extends Engine
     {
         clearos_profile(__METHOD__, __LINE__);
 
-        if (! clearos_app_installed('upstream_proxy'))
+        if (! clearos_load_library('network/Proxy'))
             return;
 
-        clearos_load_library('upstream_proxy/Proxy');
-
-        // Tighten file permissions due to potential proxy password
-        //---------------------------------------------------------
-
-        $file = new File(self::FILE_CONFIG);
-
-        if ($file->exists())
-            $file->chmod('0600');
-
-        $proxy = new \clearos\apps\upstream_proxy\Proxy();
-
-        // Write proxy configuration parameters
-        //-------------------------------------
+        $proxy = new \clearos\apps\network\Proxy();
 
         $server = $proxy->get_server();
         $port = $proxy->get_port();
@@ -291,15 +278,14 @@ class Freshclam extends Engine
         if (empty($server)) {
             $this->_set_parameter('HTTPProxyServer', NULL);
             $this->_set_parameter('HTTPProxyPort', NULL);
+            $this->_set_parameter('HTTPProxyUsername', NULL);
         } else {
             $this->_set_parameter('HTTPProxyServer', $server);
             $this->_set_parameter('HTTPProxyPort', $port);
-        }
 
-        if (empty($username))
-            $this->_set_parameter('HTTPProxyUsername', NULL);
-        else
-            $this->_set_parameter('HTTPProxyUsername', $username);
+            if (!empty($username))
+                $this->_set_parameter('HTTPProxyUsername', $username);
+        }
 
         if (empty($password))
             $this->_set_parameter('HTTPProxyPassword', NULL);
