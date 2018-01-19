@@ -1,7 +1,7 @@
 
 Name: app-antivirus
 Epoch: 1
-Version: 2.3.1
+Version: 2.4.0
 Release: 1%{dist}
 Summary: Gateway Antivirus
 License: GPLv3
@@ -23,6 +23,7 @@ Requires: app-base-core
 Requires: app-events-core
 Requires: app-network-core >= 1:2.3.28
 Requires: app-tasks-core
+Requires: syswatch
 Requires: clamav >= 0.99.2
 Requires: /usr/bin/freshclam
 Requires: /usr/sbin/clamd

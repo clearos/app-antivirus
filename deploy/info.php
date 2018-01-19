@@ -5,7 +5,7 @@
 /////////////////////////////////////////////////////////////////////////////
 
 $app['basename'] = 'antivirus';
-$app['version'] = '2.3.1';
+$app['version'] = '2.4.0';
 $app['release'] = '1';
 $app['vendor'] = 'ClearFoundation';
 $app['packager'] = 'ClearFoundation';
@@ -30,10 +30,12 @@ $app['requires'] = array(
     'app-network',
 );
 
+// syswatch drives the network-connected event
 $app['core_requires'] = array(
     'app-events-core',
     'app-network-core >= 1:2.3.28',
     'app-tasks-core',
+    'syswatch',
     'clamav >= 0.99.2',
     '/usr/bin/freshclam',
     '/usr/sbin/clamd',
