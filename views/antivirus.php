@@ -7,7 +7,7 @@
  * @package    antivirus
  * @subpackage views
  * @author     ClearFoundation <developer@clearfoundation.com>
- * @copyright  2011 ClearFoundation
+ * @copyright  2011-2018 ClearFoundation
  * @license    http://www.gnu.org/copyleft/gpl.html GNU General Public License version 3 or later
  * @link       http://www.clearfoundation.com/docs/developer/apps/antivirus/
  */
@@ -83,13 +83,6 @@ $max_recursion_options[15] = 15;
 $max_recursion_options[20] = 20;
 $max_recursion_options[25] = 25;
 
-$checks_options = array(
-    '1' => lang('base_daily'),
-    '2' => lang('antivirus_twice_a_day'),
-    '12' => lang('antivirus_every_two_hours'),
-    '24' => lang('base_hourly'),
-);
-
 if ($form_mode === 'edit') {
     $read_only = FALSE;
     $buttons = array(
@@ -114,7 +107,6 @@ echo field_toggle_enable_disable('block_encrypted', $block_encrypted, lang('anti
 echo field_dropdown('max_files', $max_files_options, $max_files, lang('antivirus_maximum_files'), $read_only);
 echo field_dropdown('max_file_size', $max_file_size_options, $max_file_size, lang('antivirus_maximum_file_size'), $read_only);
 echo field_dropdown('max_recursion', $max_recursion_options, $max_recursion, lang('antivirus_maximum_recursion'), $read_only);
-echo field_dropdown('checks', $checks_options, $checks, lang('antivirus_update_interval'), $read_only);
 
 echo field_button_set($buttons);
 

@@ -94,12 +94,10 @@ class Antivirus extends ClearOS_Controller
         //---------------
 
         $this->load->library('antivirus/ClamAV');
-        $this->load->library('antivirus/Freshclam');
 
         // Set validation rules
         //---------------------
          
-        $this->form_validation->set_policy('checks', 'antivirus/Freshclam', 'validate_checks_per_day', TRUE);
         $this->form_validation->set_policy('max_files', 'antivirus/ClamAV', 'validate_max_files', TRUE);
         $this->form_validation->set_policy('max_file_size', 'antivirus/ClamAV', 'validate_max_file_size', TRUE);
         $this->form_validation->set_policy('max_recursion', 'antivirus/ClamAV', 'validate_max_recursion', TRUE);
@@ -112,7 +110,6 @@ class Antivirus extends ClearOS_Controller
 
         if (($this->input->post('submit') && $form_ok)) {
             try {
-                $this->freshclam->set_checks_per_day($this->input->post('checks'));
                 $this->clamav->set_max_files($this->input->post('max_files'));
                 $this->clamav->set_max_file_size($this->input->post('max_file_size'));
                 $this->clamav->set_max_recursion($this->input->post('max_recursion'));
@@ -132,7 +129,6 @@ class Antivirus extends ClearOS_Controller
 
         try {
             $data['form_mode'] = $form_mode;
-            $data['checks'] = $this->freshclam->get_checks_per_day();
             $data['max_files'] = $this->clamav->get_max_files();
             $data['max_file_size'] = $this->clamav->get_max_file_size();
             $data['max_recursion'] = $this->clamav->get_max_recursion();
